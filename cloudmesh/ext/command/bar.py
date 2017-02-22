@@ -3,6 +3,9 @@ from cloudmesh_client.shell.command import command
 from cloudmesh_client.shell.command import PluginCommand
 
 
+def do_x(line):
+    print ("X")
+
 class BarCommand(PluginCommand):
 
     @command
@@ -25,3 +28,6 @@ class BarCommand(PluginCommand):
 
         """
         print(arguments)
+
+
+

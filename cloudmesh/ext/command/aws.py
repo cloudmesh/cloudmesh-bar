@@ -3,10 +3,10 @@ from cloudmesh.shell.command import command
 from cloudmesh.shell.command import PluginCommand
 
 
-class FooCommand(PluginCommand):
+class AwsCommand(PluginCommand):
 
     @command
-    def do_foo(self, args, arguments):
+    def do_aws(self, args, arguments):
         """
         ::
 
@@ -25,3 +25,6 @@ class FooCommand(PluginCommand):
 
         """
         print(arguments)
+
+
+

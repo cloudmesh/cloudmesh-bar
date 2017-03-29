@@ -24,7 +24,6 @@ def readfile(filename):
 
 
 #requiers = readfile ('requirements.txt')
-#git+git://github.com/nicolaiarocci/eve.git@develop
 requiers = """
 psutil
 pygments
@@ -32,7 +31,6 @@ tox
 detox
 coverage
 flake8
-cloudmesh_client
 """.split("\n")
 
 # dependency_links = ['http://github.com/nicolaiarocci/eve.git@develop']
@@ -40,7 +38,7 @@ cloudmesh_client
 version = readfile("VERSION")[0].strip()
 readme = readfile('README.rst')
 
-NAME = "cloudmesh-ext-command"
+NAME = "cloudmesh.aws"
 DESCRIPTION = "A command called command for the cloudmesh shell"
 AUTHOR = "Gregor von Laszewski"
 AUTHOR_EMAIL = "laszewski@gmail.com"

@@ -45,8 +45,9 @@ mongo:
 eve:
 	$(call terminal, $(EVE))
 
-deploy: setup mongo eve
-	echo deployed
+source:
+	python setup.py install; pip install -e .
+	cms help
 
 test:
 	$(call banner, "LIST SERVICE")

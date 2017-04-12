@@ -11,9 +11,9 @@ class BarCommand(PluginCommand):
         ::
 
           Usage:
-                command -f FILE
-                command FILE
-                command list
+                bar -f FILE
+                bar FILE
+                bar list
 
           This command does some useful things.
 

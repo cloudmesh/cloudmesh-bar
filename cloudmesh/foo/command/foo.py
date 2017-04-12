@@ -11,9 +11,9 @@ class FooCommand(PluginCommand):
         ::
 
           Usage:
-                command -f FILE
-                command FILE
-                command list
+                foo -f FILE
+                foo FILE
+                foo list
 
           This command does some useful things.
 

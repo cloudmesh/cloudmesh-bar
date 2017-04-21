@@ -79,6 +79,7 @@ clean:
 	rm -rf dist
 	find . -name '__pycache__' -delete
 	find . -name '*.pyc' -delete
+	find . -name '*.pye' -delete
 	rm -rf .tox
 	rm -f *.whl
 

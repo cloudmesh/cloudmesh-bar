@@ -5,6 +5,7 @@ from cloudmesh.shell.command import PluginCommand
 
 class BarCommand(PluginCommand):
 
+    # noinspection PyUnusedLocal
     @command
     def do_bar(self, args, arguments):
         """

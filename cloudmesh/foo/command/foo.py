@@ -5,6 +5,7 @@ from cloudmesh.shell.command import PluginCommand
 
 class FooCommand(PluginCommand):
 
+    # noinspection PyUnusedLocal
     @command
     def do_foo(self, args, arguments):
         """

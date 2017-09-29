@@ -48,7 +48,7 @@ eve:
 	$(call terminal, $(EVE))
 
 source:
-	python setup.py install; pip install -e .
+	pip install -e .
 	cms help
 
 test:
@@ -94,9 +94,9 @@ json:
 	cat $(ROOT_DIR)/settings.py
 
 install:
-	cd ../common; python setup.py install; pip install .
-	cd ../cmd5; python setup.py install; pip install .
-	python setup.py install; pip install .
+	cd ../common; pip install .
+	cd ../cmd5; pip install .
+	pip install .
 
 ######################################################################
 # PYPI - Only to be exectued by Gregor

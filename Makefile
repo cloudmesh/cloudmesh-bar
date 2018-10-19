@@ -113,8 +113,10 @@ dist: twine clean
 	python setup.py bdist
 	python setup.py bdist_wheel
 
-upload_test:
-	python setup.py	 sdist bdist bdist_wheel upload -r https://testpypi.python.org/pypi
+upload_test: dist
+#	python setup.py	 sdist bdist bdist_wheel upload -r pypitest
+	rm dist/*.zip
+	twine upload --repository pypitest dist/cloudmesh.bar-*.whl	dist/cloudmesh.bar-*.tar.gz
 
 log:
 	gitchangelog | fgrep -v ":dev:" | fgrep -v ":new:" > ChangeLog

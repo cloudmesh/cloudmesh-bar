@@ -24,6 +24,9 @@ def readfile(filename):
 
 
 #requiers = readfile ('requirements.txt')
+#
+# add minimum requirements here
+#
 requiers = """
 psutil
 pygments

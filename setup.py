@@ -30,10 +30,6 @@ def readfile(filename):
 requiers = """
 psutil
 pygments
-tox
-detox
-coverage
-flake8
 """.split("\n")
 
 # dependency_links = ['http://github.com/nicolaiarocci/eve.git@develop']
@@ -74,6 +70,7 @@ setup \
     tests_require=[
         "flake8",
         "coverage",
+        "tox",
     ],
     zip_safe=False,
     namespace_packages=['cloudmesh'],

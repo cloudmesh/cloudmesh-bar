@@ -2,6 +2,10 @@ from __future__ import print_function
 from cloudmesh.shell.command import command
 from cloudmesh.shell.command import PluginCommand
 from cloudmesh.bar.api.manager import Manager
+from cloudmesh.common.console import  Console
+from cloudmesh.common.util import path_expand
+from pprint import pprint
+
 
 class BarCommand(PluginCommand):
 
@@ -40,5 +44,6 @@ class BarCommand(PluginCommand):
             m.list("just calling list without parameter")
 
 
-
+        Console.error("This is just a sample")
+        return ""
 

@@ -37,7 +37,7 @@ class BarCommand(PluginCommand):
 
         if arguments.FILE:
             print("option a")
-            m.list(arguments.FILE)
+            m.list(path_expand(arguments.FILE))
 
         elif arguments.list:
             print("option b")

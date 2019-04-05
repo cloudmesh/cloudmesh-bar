@@ -41,11 +41,11 @@ with open('README.md') as f:
 
 
 
-NAME = "cloudmesh.bar"
+NAME = "cloudmesh-bar"
 DESCRIPTION = "A command called bar and foo for the cloudmesh shell"
 AUTHOR = "Gregor von Laszewski"
 AUTHOR_EMAIL = "laszewski@gmail.com"
-URL = "https://github.com/cloudmesh/cloudmesh.bar"
+URL = "https://github.com/cloudmesh/cloudmesh-bar"
 
 
 setup(

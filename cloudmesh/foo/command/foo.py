@@ -1,7 +1,7 @@
 from __future__ import print_function
 from cloudmesh.shell.command import command
 from cloudmesh.shell.command import PluginCommand
-
+from cloudmesh.common.debug import VERBOSE
 
 class FooCommand(PluginCommand):
 
@@ -25,4 +25,4 @@ class FooCommand(PluginCommand):
               -f      specify the file
 
         """
-        print(arguments)
+        VERBOSE(arguments)

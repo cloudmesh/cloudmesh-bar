@@ -5,7 +5,7 @@ from cloudmesh.bar.api.manager import Manager
 from cloudmesh.common.console import Console
 from cloudmesh.common.util import path_expand
 from pprint import pprint
-
+from cloudmesh.common.debug import VERBOSE
 
 class BarCommand(PluginCommand):
 
@@ -30,7 +30,7 @@ class BarCommand(PluginCommand):
         """
         arguments.FILE = arguments['--file'] or None
 
-        print(arguments)
+        VERBOSE(arguments)
 
         m = Manager()
 

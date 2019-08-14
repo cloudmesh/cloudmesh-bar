@@ -27,7 +27,9 @@ define terminal
 endef
 endif
 
-
+list:
+	$(call banner, "TARGETS")
+	@grep '^[^#[:space:]].*:' Makefile
 
 setup:
 	# brew update
@@ -118,8 +120,6 @@ release: clean
 	$(call banner, "install")
 	@cat VERSION
 	@echo
-	sleep 10
-	pip install -U cloudmesh-common
 
 
 dev:

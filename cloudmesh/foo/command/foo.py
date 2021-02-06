@@ -2,6 +2,7 @@ from cloudmesh.shell.command import command
 from cloudmesh.shell.command import PluginCommand
 from cloudmesh.common.debug import VERBOSE
 
+
 class FooCommand(PluginCommand):
 
     # noinspection PyUnusedLocal

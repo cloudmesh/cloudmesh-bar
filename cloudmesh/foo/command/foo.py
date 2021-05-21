@@ -1,7 +1,7 @@
 from cloudmesh.shell.command import command
 from cloudmesh.shell.command import PluginCommand
 from cloudmesh.common.debug import VERBOSE
-
+from cloudmesh.shell.command import map_parameters
 
 class FooCommand(PluginCommand):
 

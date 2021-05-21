@@ -5,7 +5,7 @@ from cloudmesh.common.console import Console
 from cloudmesh.common.util import path_expand
 from pprint import pprint
 from cloudmesh.common.debug import VERBOSE
-
+from cloudmesh.shell.command import map_parameters
 
 class BarCommand(PluginCommand):
 
@@ -28,15 +28,19 @@ class BarCommand(PluginCommand):
               -f      specify the file
 
         """
-        arguments.FILE = arguments['--file'] or None
+
+
+        # arguments.FILE = arguments['--file'] or None
+
+        map_parameters(arguments, "file")
 
         VERBOSE(arguments)
 
         m = Manager()
 
-        if arguments.FILE:
+        if arguments.file:
             print("option a")
-            m.list(path_expand(arguments.FILE))
+            m.list(path_expand(arguments.file))
 
         elif arguments.list:
             print("option b")

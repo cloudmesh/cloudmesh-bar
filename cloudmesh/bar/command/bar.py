@@ -6,6 +6,7 @@ from cloudmesh.common.util import path_expand
 from pprint import pprint
 from cloudmesh.common.debug import VERBOSE
 from cloudmesh.shell.command import map_parameters
+from cloudmesh.common.parameter import Parameter
 
 class BarCommand(PluginCommand):
 
@@ -17,22 +18,30 @@ class BarCommand(PluginCommand):
 
           Usage:
                 bar --file=FILE
+                bar --parameter=PARAMETER
                 bar list
 
           This command does some useful things.
 
           Arguments:
               FILE   a file name
+              PARAMETER  a parameterized parameter of the form "a[0-3],a5"
 
           Options:
               -f      specify the file
+
+          Description:
+
+            > cms bar --parameter="a[1-2,5],a10"
+            >    prints the expanded parameter as a list
+            >    ['a1', 'a2', 'a3', 'a4', 'a5', 'a10']
 
         """
 
 
         # arguments.FILE = arguments['--file'] or None
 
-        map_parameters(arguments, "file")
+        map_parameters(arguments, "file", "parameter")
 
         VERBOSE(arguments)
 
@@ -46,5 +55,15 @@ class BarCommand(PluginCommand):
             print("option b")
             m.list("just calling list without parameter")
 
-        Console.error("This is just a sample")
+        elif arguments.parameter:
+            print ("parameter")
+            print (Parameter.expand(arguments.parameter))
+
+
+        Console.error("This is just a sample of an error")
+        Console.warning("This is just a sample of a warning")
+        Console.info("This is just a sample of an info")
+
+        Console.info(" You can witch debugging on and off with 'cms debug on' or 'cms debug off'")
+
         return ""

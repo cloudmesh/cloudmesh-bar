@@ -19,6 +19,7 @@ class BarCommand(PluginCommand):
           Usage:
                 bar --file=FILE
                 bar --parameter=PARAMETER
+                bar run COMMAND...
                 bar list
 
           This command does some useful things.
@@ -59,6 +60,15 @@ class BarCommand(PluginCommand):
             print ("parameter")
             print (Parameter.expand(arguments.parameter))
 
+        elif arguments.run:
+
+            print ("run")
+            print("showcasing to define a command with parameters as COMMAND...")
+            print (arguments.COMMAND)
+            print("this will return an array, which we simply can join to get the command. or keep as array")
+            arguments.COMMAND_str = ' '.join(arguments.COMMAND)
+            print(arguments.COMMAND_str)
+            print(arguments.COMMAND)
 
         Console.error("This is just a sample of an error")
         Console.warning("This is just a sample of a warning")

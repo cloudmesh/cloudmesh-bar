@@ -40,8 +40,8 @@ class BarCommand(PluginCommand):
             >    prints the expanded parameter as a list
             >    ['a1', 'a2', 'a3', 'a4', 'a5', 'a10']
 
-            > bar exp --experiment=a=b,c=d. See Source code at
-            > example on how to use Parameter.arguments_to_dict
+            > bar exp --experiment=a=b,c=d
+            > example on how to use Parameter.arguments_to_dict. See source code at
             >      https://github.com/cloudmesh/cloudmesh-bar/blob/main/cloudmesh/bar/command/bar.py
             > prints the parameter as dict
             >   {'a': 'b', 'c': 'd'}
@@ -56,6 +56,14 @@ class BarCommand(PluginCommand):
         VERBOSE(arguments)
 
         m = Manager()
+
+        #
+        # It is important to keep the programming here to a minimum and any substantial programming ought
+        # to be conducted in a separate class outside the command parameter manipulation. If between the
+        # elif statement you have more than 10 lines, you may consider putting it in a class that you import
+        # here and have propper methods in that class to handle the functionality. See the Manager class for
+        # an example.
+        #
 
         if arguments.file:
             print("option a")

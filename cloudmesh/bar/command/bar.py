@@ -7,6 +7,8 @@ from pprint import pprint
 from cloudmesh.common.debug import VERBOSE
 from cloudmesh.shell.command import map_parameters
 from cloudmesh.common.parameter import Parameter
+from cloudmesh.common.variables import Variables
+from cloudmesh.common.util import banner
 
 class BarCommand(PluginCommand):
 
@@ -18,10 +20,8 @@ class BarCommand(PluginCommand):
 
           Usage:
                 bar --file=FILE
-                bar --parameter=PARAMETER
-                bar run COMMAND...
-                bar exp --experiment=EXPERIMENT...
                 bar list
+                bar [--parameter=PARAMETER] [--experiment=EXPERIMENT] [COMMAND...]
 
           This command does some useful things.
 
@@ -51,9 +51,32 @@ class BarCommand(PluginCommand):
 
         # arguments.FILE = arguments['--file'] or None
 
+        # switch debug on
+
+        variables = Variables()
+        variables["debug"] = True
+
+        banner("original arguments", color="RED")
+
+        VERBOSE(arguments)
+
+        banner("rewriting arguments so we can use . notation for file, parameter, and experiment", color="RED")
+
         map_parameters(arguments, "file", "parameter", "experiment")
 
         VERBOSE(arguments)
+
+        banner("rewriting arguments so we convert to appropriate types for easier handeling", color="RED")
+
+        arguments = Parameter.parse(arguments,
+                                    parameter='expand',
+                                    experiment='dict',
+                                    COMMAND='str')
+
+
+        VERBOSE(arguments)
+
+        banner("showcasing tom simple if parsing based on teh dotdict", color="RED")
 
         m = Manager()
 
@@ -73,28 +96,6 @@ class BarCommand(PluginCommand):
             print("option b")
             m.list("just calling list without parameter")
 
-        elif arguments.parameter:
-            print ("parameter")
-            print (Parameter.expand(arguments.parameter))
-
-        elif arguments.run:
-
-            print ("run")
-            print("showcasing to define a command with parameters as COMMAND...")
-            print (arguments.COMMAND)
-            print("this will return an array, which we simply can join to get the command. or keep as array")
-            arguments.COMMAND_str = ' '.join(arguments.COMMAND)
-            print(arguments.COMMAND_str)
-            print(arguments.COMMAND)
-
-        elif arguments.exp:
-
-            print ("demonstrate how to handle an argument with = in it so we do not have to backslash quote")
-            print (arguments.experiment)
-            arguments.experiment = ' '.join(arguments.experiment)
-            print(arguments.experiment)
-            data = Parameter.arguments_to_dict(arguments.experiment)
-            pprint (data)
 
         Console.error("This is just a sample of an error")
         Console.warning("This is just a sample of a warning")

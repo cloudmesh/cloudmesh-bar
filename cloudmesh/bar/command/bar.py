@@ -20,6 +20,7 @@ class BarCommand(PluginCommand):
                 bar --file=FILE
                 bar --parameter=PARAMETER
                 bar run COMMAND...
+                bar exp --experiment=EXPERIMENT...
                 bar list
 
           This command does some useful things.
@@ -34,15 +35,23 @@ class BarCommand(PluginCommand):
           Description:
 
             > cms bar --parameter="a[1-2,5],a10"
+            >    example on how to use Parameter.expand. See source code at
+            >      https://github.com/cloudmesh/cloudmesh-bar/blob/main/cloudmesh/bar/command/bar.py
             >    prints the expanded parameter as a list
             >    ['a1', 'a2', 'a3', 'a4', 'a5', 'a10']
+
+            > bar exp --experiment=a=b,c=d. See Source code at
+            > example on how to use Parameter.arguments_to_dict
+            >      https://github.com/cloudmesh/cloudmesh-bar/blob/main/cloudmesh/bar/command/bar.py
+            > prints the parameter as dict
+            >   {'a': 'b', 'c': 'd'}
 
         """
 
 
         # arguments.FILE = arguments['--file'] or None
 
-        map_parameters(arguments, "file", "parameter")
+        map_parameters(arguments, "file", "parameter", "experiment")
 
         VERBOSE(arguments)
 
@@ -69,6 +78,15 @@ class BarCommand(PluginCommand):
             arguments.COMMAND_str = ' '.join(arguments.COMMAND)
             print(arguments.COMMAND_str)
             print(arguments.COMMAND)
+
+        elif arguments.exp:
+
+            print ("demonstrate how to handle an argument with = in it so we do not have to backslash quote")
+            print (arguments.experiment)
+            arguments.experiment = ' '.join(arguments.experiment)
+            print(arguments.experiment)
+            data = Parameter.arguments_to_dict(arguments.experiment)
+            pprint (data)
 
         Console.error("This is just a sample of an error")
         Console.warning("This is just a sample of a warning")

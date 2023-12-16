@@ -1,6 +1,6 @@
 from cloudmesh.shell.command import command
 from cloudmesh.shell.command import PluginCommand
-from cloudmesh.bar.api.manager import Manager
+from cloudmesh.bar.bar import Bar
 from cloudmesh.common.console import Console
 from cloudmesh.common.util import path_expand
 from pprint import pprint
@@ -78,7 +78,7 @@ class BarCommand(PluginCommand):
 
         banner("showcasing tom simple if parsing based on teh dotdict", color="RED")
 
-        m = Manager()
+        m = Bar()
 
         #
         # It is important to keep the programming here to a minimum and any substantial programming ought

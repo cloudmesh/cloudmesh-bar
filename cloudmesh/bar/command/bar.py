@@ -1,14 +1,14 @@
-from cloudmesh.shell.command import command
-from cloudmesh.shell.command import PluginCommand
 from cloudmesh.bar.bar import Bar
 from cloudmesh.common.console import Console
-from cloudmesh.common.util import path_expand
-from pprint import pprint
 from cloudmesh.common.debug import VERBOSE
-from cloudmesh.shell.command import map_parameters
 from cloudmesh.common.parameter import Parameter
-from cloudmesh.common.variables import Variables
 from cloudmesh.common.util import banner
+from cloudmesh.common.util import path_expand
+from cloudmesh.common.variables import Variables
+from cloudmesh.shell.command import PluginCommand
+from cloudmesh.shell.command import command
+from cloudmesh.shell.command import map_parameters
+
 
 class BarCommand(PluginCommand):
 
@@ -48,7 +48,6 @@ class BarCommand(PluginCommand):
 
         """
 
-
         # arguments.FILE = arguments['--file'] or None
 
         # switch debug on
@@ -66,13 +65,12 @@ class BarCommand(PluginCommand):
 
         VERBOSE(arguments)
 
-        banner("rewriting arguments so we convert to appropriate types for easier handeling", color="RED")
+        banner("rewriting arguments so we convert to appropriate types for easier handling", color="RED")
 
         arguments = Parameter.parse(arguments,
                                     parameter='expand',
                                     experiment='dict',
                                     COMMAND='str')
-
 
         VERBOSE(arguments)
 
@@ -84,7 +82,7 @@ class BarCommand(PluginCommand):
         # It is important to keep the programming here to a minimum and any substantial programming ought
         # to be conducted in a separate class outside the command parameter manipulation. If between the
         # elif statement you have more than 10 lines, you may consider putting it in a class that you import
-        # here and have propper methods in that class to handle the functionality. See the Manager class for
+        # here and have proper methods in that class to handle the functionality. See the Manager class for
         # an example.
         #
 
@@ -95,7 +93,6 @@ class BarCommand(PluginCommand):
         elif arguments.list:
             print("option b")
             m.list("just calling list without parameter")
-
 
         Console.error("This is just a sample of an error")
         Console.warning("This is just a sample of a warning")

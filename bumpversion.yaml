@@ -1,0 +1,3 @@
+bumpversion:
+- cloudmesh/bar/__version__.py
+- VERSION

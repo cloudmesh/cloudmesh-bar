@@ -51,11 +51,12 @@ classifiers = [
 dependencies = [
     "cloudmesh-cmd5",
 ]
+
 [project.urls]
 "Documentation" = "https://github.com/cloudmesh/cloudmesh-common"
 
 [tool.setuptools.packages.find]
-where = ["."]  # list of folders that contain the packages (["."] by default)
-include = ["cloudmesh"]  # package names should match these glob patterns (["*"] by default)
-exclude = ["deprecated", "deprecated.**", "tests", "tests.*", "examples"]
-namespaces = true
+where = ["src/"]
+include = ["cloudmesh.bar"]
+
+

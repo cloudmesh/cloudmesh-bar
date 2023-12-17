@@ -9,9 +9,9 @@ requires = [
 [project]
 name = "cloudmesh-bar"
 version = "5.0.18"
-description = "A sample command called bar"
+description = "A set of useful APIs for cloudmesh"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.8"
 license = {file = "LICENSE"}
 authors = [
   {name = "Gregor von Laszewski", email = "laszewski@gmail.com"}
@@ -49,14 +49,12 @@ classifiers = [
 ]
 
 dependencies = [
+    "toml",
     "cloudmesh-cmd5",
 ]
-
 [project.urls]
 "Documentation" = "https://github.com/cloudmesh/cloudmesh-common"
 
 [tool.setuptools.packages.find]
 where = ["src/"]
-include = ["cloudmesh.bar"]
-
-
+include = ["cloudmesh.bar", "cloudmesh.bar.*"]

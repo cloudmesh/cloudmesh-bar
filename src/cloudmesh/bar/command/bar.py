@@ -11,7 +11,6 @@ from cloudmesh.shell.command import map_parameters
 
 
 class BarCommand(PluginCommand):
-
     # noinspection PyUnusedLocal
     @command
     def do_bar(self, args, arguments):
@@ -59,18 +58,23 @@ class BarCommand(PluginCommand):
 
         VERBOSE(arguments)
 
-        banner("rewriting arguments so we can use . notation for file, parameter, and experiment", color="RED")
+        banner(
+            "rewriting arguments so we can use . notation for file, parameter, and experiment",
+            color="RED",
+        )
 
         map_parameters(arguments, "file", "parameter", "experiment")
 
         VERBOSE(arguments)
 
-        banner("rewriting arguments so we convert to appropriate types for easier handling", color="RED")
+        banner(
+            "rewriting arguments so we convert to appropriate types for easier handling",
+            color="RED",
+        )
 
-        arguments = Parameter.parse(arguments,
-                                    parameter='expand',
-                                    experiment='dict',
-                                    COMMAND='str')
+        arguments = Parameter.parse(
+            arguments, parameter="expand", experiment="dict", COMMAND="str"
+        )
 
         VERBOSE(arguments)
 
@@ -98,6 +102,8 @@ class BarCommand(PluginCommand):
         Console.warning("This is just a sample of a warning")
         Console.info("This is just a sample of an info")
 
-        Console.info(" You can witch debugging on and off with 'cms debug on' or 'cms debug off'")
+        Console.info(
+            " You can witch debugging on and off with 'cms debug on' or 'cms debug off'"
+        )
 
         return ""

@@ -1,5 +1,4 @@
-Cloudmesh Command bar
-=====================
+# Cloudmesh Command bar
 
 [![GitHub Repo](https://img.shields.io/badge/github-repo-green.svg)](https://github.com/cloudmesh/cloudmesh-bar)
 [![image](https://img.shields.io/pypi/pyversions/cloudmesh-bar.svg)](https://pypi.org/project/cloudmesh-bar)

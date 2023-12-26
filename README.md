@@ -38,6 +38,13 @@ You can cd into that command and install it with
     make local
 
 
+## Manual Page
+
+<!-- START-MANUAL -->
+```
+Command bar
+===========
+
 ::
 
   Usage:
@@ -68,3 +75,5 @@ You can cd into that command and install it with
     > prints the parameter as dict
     >   {'a': 'b', 'c': 'd'}
 
+```
+<!-- STOP-MANUAL -->
